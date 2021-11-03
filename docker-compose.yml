@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+    wow_classic:
+        image: docker.placeholder.pro/wow-classic
+        restart: always
+        volumes:
+            - database:/var/lib/mysql
+            - srv-cfg:/cmangos/etc
+        ports:
+            - 3724:3724 #realmd
+            - 8085:8085 #world
+            - 3306:3306 #database
+            - 3443:3443 #console "nc 127.0.0.1 3443"
+volumes:
+    database:
+    srv-cfg:
